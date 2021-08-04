@@ -12,7 +12,7 @@ export default (selector, regexArray, errorMsg, classAtrError) => {
         const form = i.parentNode;
         msg = document.createElement('div');
         msg.classList.add(`${classAtrError}`);
-        msg.style.marginTop = '20px';
+        msg.style.marginTop = '30px';
         form.appendChild(msg);
 
         if (msg.previousSibling.className === `${classAtrError}`) {

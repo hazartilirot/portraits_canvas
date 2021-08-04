@@ -4,12 +4,13 @@ import callModalByTime from './callModalByTime';
 
 export default () => {
   const scrollWidth = getScrollWidth();
-
+  let btnIsClicked = false;
+  
   const setModal = (
     triggerSelector,
     modalSelector,
     closeSelector,
-    closeOverlayByClick = true
+    hideSelectorByClick = false
   ) => {
     const trigger = document.querySelectorAll(triggerSelector);
     const modal = document.querySelector(modalSelector);
@@ -19,8 +20,13 @@ export default () => {
     trigger.forEach(i => {
       i.addEventListener('click', e => {
         e.target && e.preventDefault();
-
-        windows.forEach(e => e.style.display = 'none')
+        btnIsClicked = true;
+        if (hideSelectorByClick) i.style.display = 'none';
+        
+        windows.forEach(e => {
+          e.style.display = 'none';
+          e.classList.add('animated', 'fadeIn')
+        });
 
         setModalProps(modal, 'block', 'hidden', `${scrollWidth}px`);
       })
@@ -30,10 +36,24 @@ export default () => {
       setModalProps(modal, 'none', 'auto', '0px'));
 
     modal.addEventListener('click', e => {
-      if (e.target === modal && closeOverlayByClick)
+      if (e.target === modal)
         windows.forEach(e => setModalProps(e, 'none', 'auto', '0px'))
     });
+    
+    callModalByTime('.popup-consultation', 60000);
   };
   
+  const showModalOncePageEndReached = (selector) => {
+    window.addEventListener('scroll', () => {
+      const clientsHeight = window.pageYOffset + document.documentElement.clientHeight;
+      const scrollHeight = document.documentElement.scrollHeight
+      if (!btnIsClicked && clientsHeight >= scrollHeight)
+        document.querySelector(selector).click();
+    })
+  }
+  
   setModal('.button-design', '.popup-design', '.popup-design .popup-close');
+  setModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
+  setModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close', true);
+  showModalOncePageEndReached('.fixed-gift')
 }

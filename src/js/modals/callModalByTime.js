@@ -3,7 +3,8 @@ import { setModalProps } from '../utilities';
 
 const scrollWidth = getScrollWidth();
 
-export default (element, time) => {
+export default (selector, time) => {
+  const element = document.querySelector(selector);
     let id;
     
     const resetTimer = () => {
