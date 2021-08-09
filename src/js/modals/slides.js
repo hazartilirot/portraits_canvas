@@ -3,20 +3,22 @@ export default () => {
     const containers = document.querySelectorAll(selector);
 
     let index = 0;
-    let id;
-
+    let intervalId;
+    
     containers.forEach(i => {
       i.style.display = 'none';
       i.classList.add('animated');
     });
-
-    const setClassDirection = attribute => {
+    
+    const setSlideDirection = attribute => {
       containers.forEach(i =>
         i.classList.remove(`${i.className.match(/slideIn.+/)}`)
       );
       containers[index].classList.add(attribute);
     };
-
+    /** 
+     * @n - defines a direction change. By default the first slide would appear
+     * */
     const changeSlide = (n = 0) => {
       containers[index].style.display = 'none';
 
@@ -28,38 +30,37 @@ export default () => {
       containers[index].style.display = 'block';
 
       if (axis === 'x' || axis === 'horizontal') {
-        if (n === -1) setClassDirection('slideInRight');
-        if (n === 1) setClassDirection('slideInLeft');
+        if (n === -1) setSlideDirection('slideInRight');
+        if (n === 1) setSlideDirection('slideInLeft');
       }
 
       if (axis === 'y' || axis === 'vertical') {
-        if (n === -1) setClassDirection('slideInDown');
-        if (n === 1) setClassDirection('slideInUp');
+        if (n === -1) setSlideDirection('slideInDown');
+        if (n === 1) setSlideDirection('slideInUp');
       }
     };
-
-    const resetTimer = (time = 1000) => {
-      clearInterval(id);
-      setTimeout(() => id = setInterval(() => changeSlide(1), 5000), time)
-    };
     
-    const prevBtn = document.querySelector(prevBtnSelector);
-    const nextBtn = document.querySelector(nextBtnSelector);
-
-    if (prevBtn !== undefined && prevBtn !== null) {
-      prevBtn.addEventListener('click', () => {
-        changeSlide(-1);
-        resetTimer(15000);
-      });
+    const resetTimer = () =>
+      intervalId = setInterval(() => changeSlide(1), 4000);
+    /**
+     * @delay set timer in ms. Once a user's cursor enters slide's area the parameter would postpone their change.
+     * */
+    const sliderInterface = () => {
+      const prevBtn = document.querySelector(prevBtnSelector);
+      const nextBtn = document.querySelector(nextBtnSelector);
+  
+      if (prevBtn === undefined || prevBtn === null ||
+          nextBtn === undefined || nextBtn === null)
+        return;
+      
+      prevBtn.addEventListener('click', () => changeSlide(-1));
+      nextBtn.addEventListener('click', () => changeSlide(1));
+      
+      containers[0].parentNode.addEventListener('mouseenter', () => clearInterval(intervalId))
+      containers[0].parentNode.addEventListener('mouseleave', () => resetTimer())
     }
     
-    if (nextBtn !== undefined && nextBtn !== null) {
-      nextBtn.addEventListener('click', () => {
-        changeSlide(1);
-        resetTimer(15000);
-      });
-    }
-    
+    sliderInterface()
     changeSlide();
     resetTimer();
   }

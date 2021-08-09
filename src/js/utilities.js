@@ -25,3 +25,8 @@ export const setModalProps = (
   document.body.overflow = bodyOverflow;
   document.body.marginRight = bodyMarginRight;
 };
+
+export const delay = ms =>
+    new Promise(resolve => {
+      const id = setTimeout(() => resolve(id), ms);
+    });

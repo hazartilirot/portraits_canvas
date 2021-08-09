@@ -31,3 +31,7 @@ export const regexEmails = [
     /^[\w\.\~\+-]+@[a-z]{1,10}\.$/,
     /^[\w\.\~\+-]+@[a-z]{1,10}\.[comnetruai]{1,3}$/,
   ];
+export const regexMessage = [
+  /^[а-яА-Я!?,.()+-=@%*\s]+$/,
+]
+export const regexImageExtension = [/\.(jpg|jpeg|bmp|png|pdf|tiff|tif)$/]
