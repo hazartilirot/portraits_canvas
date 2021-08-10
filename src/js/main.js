@@ -9,5 +9,5 @@ window.addEventListener('DOMContentLoaded', () => {
   modals();
   forms();
   slides();
-  showMoreStylesCards('.button-styles', '.styles-2')
+  showMoreStylesCards('.button-styles')
 })
