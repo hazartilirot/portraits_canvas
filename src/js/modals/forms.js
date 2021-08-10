@@ -58,14 +58,6 @@ export default () => {
     'status'
   )
   
-  /*uploads.forEach(upload => 
-    upload.addEventListener('input', () => {
-      console.log(upload.value)
-      
-      
-    })
-  )*/
-  
   const message = {
     loading: "Loading...",
     success: "Thank you for reaching out to us",

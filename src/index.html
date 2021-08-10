@@ -598,10 +598,10 @@
 			<div class="col-md-10 col-md-offset-1">
 				<form action=# method=POST>
 					<div class=input-wrapper>
-						<input type=text name=name placeholder="Ваше имя" required>
-						<input type=text name=phone placeholder="Ваш телефон" required>
-						<input type=text name=email placeholder="Ваш E-mail">
-						<input class=input-text name=message type=text placeholder="Задайте ваш вопрос здесь" required>
+						<input type=text name=name placeholder="Ваше имя" onpaste="return false" required>
+						<input type=text name=phone placeholder="Ваш телефон" onpaste="return false" required>
+						<input type=text name=email placeholder="Ваш E-mail" onpaste="return false" >
+						<input class=input-text name=message type=text placeholder="Задайте ваш вопрос здесь" onpaste="return false" required>
 					</div>
 					<button class="button button-order">Получить консультацию</button>
 				</form>
@@ -666,8 +666,8 @@
 				<h4>Остались вопросы? Закажите обратный звонок</h4>
 				<div class=main-form>
 					<form class=form action=# method=POST>
-						<input type=text name=name placeholder="Ваше имя" required>
-						<input type=text name=phone placeholder="Ваш телефон" required>
+						<input type=text name=name placeholder="Ваше имя" onpaste="return false" required>
+						<input type=text name=phone placeholder="Ваш телефон" onpaste="return false" required>
 						<button class="button button-order">Получить консультацию</button>
 					</form>
 				</div>
@@ -697,10 +697,10 @@
 					</div>
 					<div class=main-form>
 						<div class=form>
-							<input type=text name=name placeholder="Ваше имя" required>
-							<input type=text name=phone placeholder="Ваш телефон" required>
-							<input type=text name=email placeholder="Ваш e-mail">
-							<textarea name=message placeholder=Комментарий rows=2></textarea>
+							<input type=text name=name placeholder="Ваше имя" onpaste="return false" required>
+							<input type=text name=phone placeholder="Ваш телефон" onpaste="return false" required>
+							<input type=text name=email placeholder="Ваш e-mail" onpaste="return false" >
+							<textarea name=message placeholder=Комментарий rows=2 onpaste="return false" ></textarea>
 							<button class="button button-order">Отправить дизайнеру</button>
 						</div>
 					</div>

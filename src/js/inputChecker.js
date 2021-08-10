@@ -20,7 +20,7 @@ export default (selector, regexArray, errorMsg, classAtrError) => {
           input.parentNode.lastElementChild.disabled = false;
           input.parentNode.firstElementChild.style.display = 'block';
           input.parentNode.lastElementChild.style.cursor = 'pointer';
-          input.previousElementSibling.textContent = 'Файл не выбран';              ;
+          input.previousElementSibling.textContent = 'Файл не выбран';
           clearTimeout(id);
         })
       return;
