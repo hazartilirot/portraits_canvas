@@ -1,5 +1,6 @@
 import { getScrollWidth } from '../utilities';
 import { setModalProps } from '../utilities';
+import { clearInputs } from '../utilities';
 import callModalByTime from './callModalByTime';
 
 export default () => {
@@ -32,12 +33,16 @@ export default () => {
       })
     });
 
-    close.addEventListener('click', () =>
-      setModalProps(modal, 'none', 'auto', '0px'));
+    close.addEventListener('click', () => {
+      setModalProps(modal, 'none', 'auto', '0px')
+      clearInputs();
+    });
 
     modal.addEventListener('click', e => {
-      if (e.target === modal)
+      if (e.target === modal) {
         windows.forEach(e => setModalProps(e, 'none', 'auto', '0px'))
+        clearInputs();
+      }
     });
     
     callModalByTime('.popup-consultation', 60000);

@@ -15,6 +15,8 @@ export const getScrollWidth = () => {
   return scrollWidth;
 };
 
+
+
 export const setModalProps = (
   modalSelector,
   modalDisplay,
@@ -25,6 +27,16 @@ export const setModalProps = (
   document.body.overflow = bodyOverflow;
   document.body.marginRight = bodyMarginRight;
 };
+
+export const clearInputs = () => {
+  const inputs = document.querySelectorAll('input');
+  const textArea = document.querySelectorAll('textarea[name="message"]');
+  const uploads = document.querySelectorAll('input[name="upload"]')
+  
+  inputs.forEach(input => input.value = '');
+  uploads.forEach(input => input.previousElementSibling.textContent = 'Файл не выбран');
+  textArea.forEach(input => input.value = '')
+  }
 
 export const delay = ms =>
     new Promise(resolve => {

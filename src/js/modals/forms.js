@@ -8,13 +8,11 @@ import {
 } from '../regex';
 
 import {delay} from '../utilities';
+import { clearInputs } from '../utilities';
 
 export default () => {
   const forms = document.querySelectorAll('form');
-  const inputs = document.querySelectorAll('input');
-  const textArea = document.querySelectorAll('textarea[name="message"]');
-  const uploads = document.querySelectorAll('input[name="upload"]')
-  
+    
   inputChecker(
     'input[name=upload]',
     regexImageExtension,
@@ -73,12 +71,6 @@ export default () => {
       body: data
     })
     return await res.text();
-  }
-  
-  const clearInputs = () => {
-    inputs.forEach(input => input.value = '');
-    uploads.forEach(input => input.previousElementSibling.textContent = 'Файл не выбран');
-    textArea.forEach(input => input.value = '')
   }
   
   const routes = {
