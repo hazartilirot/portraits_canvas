@@ -3,6 +3,7 @@ import forms from './modals/forms';
 import slides from './modals/slides';
 import showMoreStylesCards from './modals/showMoreStylesCards';
 import calculateOrder from './modals/calculateOrder';
+import portfolioMenu from './modals/portfolioMenu';
 
 window.addEventListener('DOMContentLoaded', () => {
   "use strict";
@@ -12,4 +13,5 @@ window.addEventListener('DOMContentLoaded', () => {
   slides();
   showMoreStylesCards('.button-styles');
   calculateOrder();
+  portfolioMenu()
 })
