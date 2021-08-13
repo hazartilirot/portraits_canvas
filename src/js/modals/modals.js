@@ -48,7 +48,7 @@ export default () => {
     callModalByTime('.popup-consultation', 60000);
   };
   
-  const showModalOncePageEndReached = (selector) => {
+  const showModalOncePageEndReached = selector => {
     window.addEventListener('scroll', () => {
       const clientsHeight = window.pageYOffset + document.documentElement.clientHeight;
       const scrollHeight = document.documentElement.scrollHeight
