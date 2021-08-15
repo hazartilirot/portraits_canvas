@@ -6,16 +6,18 @@ import calculateOrder from './modals/calculateOrder';
 import portfolioMenu from './modals/portfolioMenu';
 import makeAnyCanvasFrame from './modals/makeAnyCanvasFrame';
 import faqAccordion from './modals/faqAccordion';
+import burgerMenu from './modals/burgerMenu';
 
 window.addEventListener('DOMContentLoaded', () => {
-  "use strict";
-  
+  'use strict';
+
   modals();
   forms();
   slides();
   showMoreStylesCards('.button-styles');
   calculateOrder();
-  portfolioMenu()
+  portfolioMenu();
   makeAnyCanvasFrame();
-  faqAccordion()
-})
+  faqAccordion();
+  burgerMenu();
+});
