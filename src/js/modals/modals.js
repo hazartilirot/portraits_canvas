@@ -48,17 +48,17 @@ export default () => {
     callModalByTime('.popup-consultation', 60000);
   };
   
-  const showModalOncePageEndReached = selector => {
-    window.addEventListener('scroll', () => {
-      const clientsHeight = window.pageYOffset + document.documentElement.clientHeight;
-      const scrollHeight = document.documentElement.scrollHeight
-      if (!btnIsClicked && clientsHeight >= scrollHeight)
-        document.querySelector(selector).click();
-    })
+  const showModalOncePageEndReached = () => {
+    const clientsHeight = window.pageYOffset + document.documentElement.clientHeight;
+    const scrollHeight = document.documentElement.scrollHeight;
+    if (!btnIsClicked && clientsHeight >= scrollHeight) {
+      document.querySelector('.fixed-gift').click();
+      window.removeEventListener('scroll', showModalOncePageEndReached);
+    }
   }
   
   setModal('.button-design', '.popup-design', '.popup-design .popup-close');
   setModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
   setModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close', true);
-  showModalOncePageEndReached('.fixed-gift')
+  window.addEventListener('scroll', showModalOncePageEndReached)
 }

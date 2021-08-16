@@ -781,16 +781,17 @@ h4 {
 }
 .pageup {
   opacity: 0;
-  width: 26px ;
-  height: 26px;
+  visibility: hidden;
+  width: 36px ;
+  height: 36px;
   position: fixed;
   bottom: 100px;
   right: 5%;
-  z-index: 30;
+  z-index: 19;
   background-color: #fff;
   cursor: pointer;
   border: 1px solid white;
-  transition: 1s all;
+  transition: all 1.5s;
 }
 .sizes {
   padding: 9rem 0 20rem 0;

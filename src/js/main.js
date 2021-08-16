@@ -7,6 +7,7 @@ import portfolioMenu from './modals/portfolioMenu';
 import makeAnyCanvasFrame from './modals/makeAnyCanvasFrame';
 import faqAccordion from './modals/faqAccordion';
 import burgerMenu from './modals/burgerMenu';
+import navigateToSection from './modals/navigateToSection';
 
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
@@ -20,4 +21,5 @@ window.addEventListener('DOMContentLoaded', () => {
   makeAnyCanvasFrame();
   faqAccordion();
   burgerMenu();
+  navigateToSection();
 });

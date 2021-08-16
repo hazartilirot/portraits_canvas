@@ -14,9 +14,6 @@ export const getScrollWidth = () => {
 
   return scrollWidth;
 };
-
-
-
 export const setModalProps = (
   modalSelector,
   modalDisplay,
@@ -24,8 +21,10 @@ export const setModalProps = (
   bodyMarginRight
 ) => {
   modalSelector.style.display = modalDisplay;
-  document.body.overflow = bodyOverflow;
-  document.body.marginRight = bodyMarginRight;
+  document.body.style.overflowY = bodyOverflow;
+  document.body.style.marginRight = bodyMarginRight;
+  document.querySelector('.fixed-gift').style.marginRight = bodyMarginRight;
+  document.querySelector('.pageup').style.marginRight = bodyMarginRight;
 };
 
 export const clearInputs = () => {
