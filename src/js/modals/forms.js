@@ -7,8 +7,7 @@ import {
   regexImageExtension
 } from '../regex';
 
-import {delay} from '../utilities';
-import { clearInputs } from '../utilities';
+import { delay, clearInputs, postData, message, loadingSpinner } from '../utilities';
 
 export default () => {
   const forms = document.querySelectorAll('form');
@@ -56,23 +55,6 @@ export default () => {
     'status'
   )
   
-  const message = {
-    loading: "Loading...",
-    success: "Thank you for reaching out to us",
-    failure: "Something went wrong",
-    spinner: "assets/img/spinner.png",
-    ok: 'assets/img/ok.png',
-    fail: 'assets/img/fail.png'
-  }
-  
-  const postData = async (url, data) => {
-    const res = await fetch(url, {
-      method: 'POST',
-      body: data
-    })
-    return await res.text();
-  }
-  
   const routes = {
     enquiry: 'assets/enquiry.php',
     designer: 'assets/server.php'
@@ -89,20 +71,10 @@ export default () => {
           clearTimeout(id);
         })
       
-      const statusContainer = document.createElement('div');
-      statusContainer.classList.add('status');
-      form.parentNode.appendChild(statusContainer);
-      
-      const spinner = document.createElement('div');
-      spinner.classList.add('spinner');
-      statusContainer.appendChild(spinner);
-      
-      const textMessage = document.createElement('div');
-      textMessage.textContent = message.loading;
-      statusContainer.appendChild(textMessage);
+      const { statusContainer, spinner, textMessage } = loadingSpinner(form, message)
       
       const formData = new FormData(form);
-      
+        
       let path;
       
       if (form.closest('.popup-consultation')) path = routes.enquiry 

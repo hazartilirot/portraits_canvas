@@ -8,6 +8,7 @@ import makeAnyCanvasFrame from './modals/makeAnyCanvasFrame';
 import faqAccordion from './modals/faqAccordion';
 import burgerMenu from './modals/burgerMenu';
 import navigateToSection from './modals/navigateToSection';
+import uploadFileDragNDrop from './modals/uploadFileDragNDrop';
 
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
@@ -22,4 +23,5 @@ window.addEventListener('DOMContentLoaded', () => {
   faqAccordion();
   burgerMenu();
   navigateToSection();
+  uploadFileDragNDrop()
 });
